@@ -28,16 +28,18 @@ const vectorSchema = new mongoose.Schema({
             type: String
         },
         geometry: {
-            type: String,
+            type: {
+                type : String
+            },
             coordinates: [[[Number]]]
         }
     },
     region:{
-        type:mongoose.Schema.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:"region"
     },
     owner:{
-        type:mongoose.Schema.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref : "user"
     }
 
@@ -45,7 +47,7 @@ const vectorSchema = new mongoose.Schema({
 
 
 
-module.exports = mongoose.Schema("vector",vectorSchema);
+module.exports = mongoose.model("vector",vectorSchema);
 
 
 
