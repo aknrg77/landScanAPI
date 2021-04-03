@@ -31,6 +31,8 @@ const regionSchema = new mongoose.Schema({
     }
 });
 
+regionSchema.index({ location: '2dsphere' });
+
 regionSchema.pre('findOne',function(next){
     this.populate("owner");
     next();

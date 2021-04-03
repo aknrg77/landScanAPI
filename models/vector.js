@@ -45,6 +45,11 @@ const vectorSchema = new mongoose.Schema({
 
 });
 
+vectorSchema.pre("findOne",function(next){
+    this.populate("owner region");
+    next();
+});
+
 
 
 module.exports = mongoose.model("vector",vectorSchema);
